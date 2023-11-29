@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  sonarcloud: sonarsource/sonarcloud@2.0.0
+
 jobs:
   build:
     working_directory: ~/repo
@@ -42,9 +45,11 @@ jobs:
           command: |
             . venv/bin/activate
             python3 -m pylint calculator.py
+      - sonarcloud/scan
 
 
 workflows:
   build-test:
     jobs:
-      - build
+      - build:
+          context: sonarcloud
