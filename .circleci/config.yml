@@ -57,10 +57,26 @@ jobs:
               cp -r ./dist/* /tmp/artifact/
             fi
 
+  deploy:
+    docker: 
+      - image: cimg/python:3.10.1
+    steps:
+      - run:
+          name: Deploy app
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "main" ]; then
+              cp -r /tmp/artifact/* artifact/
+            fi
+
+
 
 
 workflows:
-  build-test:
+  build-deploy:
     jobs:
       - build:
           context: sonarcloud
+      - deploy:
+          context: sonarCloud
+          requires:
+            - build
