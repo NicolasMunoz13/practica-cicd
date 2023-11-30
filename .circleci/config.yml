@@ -62,6 +62,11 @@ jobs:
       - image: cimg/python:3.10.1
     steps:
       - run:
+          name: Verify file
+          command: |
+            ls
+            pwd
+      - run:
           name: Deploy app
           command: |
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
@@ -78,5 +83,9 @@ workflows:
           context: sonarcloud
       - deploy:
           context: sonarCloud
+          filters:
+            branches:
+              only:
+                - main
           requires:
             - build
