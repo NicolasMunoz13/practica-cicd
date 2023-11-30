@@ -54,6 +54,7 @@ jobs:
               . venv/bin/activate
               python -m build --wheel
               mkdir -p /tmp/dist
+              ls
               cp -r /dist/* /tmp/dist
             fi
 
