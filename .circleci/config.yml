@@ -53,8 +53,8 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "develop" ]; then
               . venv/bin/activate
               python -m build --wheel
-              mkdir -p /workspace/dist
-              cp -r /dist/* /workspace/dist
+              mkdir -p /tmp/dist
+              cp -r /dist/* /tmp/dist
             fi
 
 
