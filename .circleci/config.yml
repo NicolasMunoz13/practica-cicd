@@ -50,7 +50,7 @@ jobs:
       - run:
           name: Generate Artifact
           command: |
-            if [${CIRCLE_BRANCH} == "develop"]; then
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
               . venv/bin/activate
               python -m build --wheel
               mkdir -p /workspace/dist
