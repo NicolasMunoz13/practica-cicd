@@ -58,6 +58,7 @@ jobs:
             fi
 
   deploy:
+    working_directory: ~/repo
     docker: 
       - image: cimg/python:3.10.1
     steps:
