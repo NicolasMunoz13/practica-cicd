@@ -55,7 +55,8 @@ jobs:
               python -m build --wheel
               mkdir -p /tmp/artifact
               ls
-              cp -r /dist/*.whl /tmp/artifact
+              cd dist/
+              ls
             fi
 
 
