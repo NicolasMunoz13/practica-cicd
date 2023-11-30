@@ -54,7 +54,7 @@ jobs:
               . venv/bin/activate
               python -m build --wheel
               mkdir -p /tmp/artifact
-              cp -r ./dist/* ./tmp/artifact/
+              cp -r ./dist/* tmp/artifact/
             fi
 
 
