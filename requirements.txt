@@ -3,6 +3,7 @@ Flask
 #pip3 install Flask
 #export FLASK_APP=calculator.py
 #python -m flask run
+#python -m flask --app calculator run
 
 #test
 #python3 test.py
