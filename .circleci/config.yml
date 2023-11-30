@@ -65,7 +65,7 @@ jobs:
           name: Deploy app
           command: |
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              cp -r /tmp/artifact/* artifact/
+              cp -r ./tmp/artifact/* artifact/
             fi
 
 
