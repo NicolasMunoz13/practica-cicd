@@ -47,6 +47,14 @@ jobs:
             . venv/bin/activate
             python3 -m pylint calculator.py
       - sonarcloud/scan
+      - run:
+          name: Generate Artifact
+          command: |
+            . venv/bin/activate
+            python -m build --wheel
+      - store_artifacts:
+          path: ~/repo/dist
+          destination: dist
       - persist_to_workspace:
             root: ~/repo
             paths: .
@@ -55,21 +63,14 @@ jobs:
     docker: 
       - image: cimg/python:3.10.1
     steps:
-      - attach_workspace: #Trayendo la informacion del job anterior persistida
+      - attach_workspace:
           at: ~/repo
       - run:
           name: Verify file
           command: |
             ls
             pwd
-      - run:
-          name: Generate Artifact
-          command: |
-            . venv/bin/activate
-            python -m build --wheel
-      - store_artifacts: #Para guardar los artifacts
-          path: ~/repo/dist
-          destination: dist
+
             
 
 
