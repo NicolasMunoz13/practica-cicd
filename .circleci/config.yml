@@ -74,7 +74,7 @@ jobs:
       - run:
           name: Print env variables
           command: |
-            PYPI_USERNAME
+            #PYPI_USERNAME
             $PYPI_USERNAME
             echo $PYPI_USERNAME
             ${PYPI_USERNAME}
