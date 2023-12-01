@@ -70,10 +70,11 @@ jobs:
       - store_artifacts:
           path: ~/repo/dist
           destination: dist
-            
-
-
-
+      - run:
+          name: Register Artifact
+          command: |
+            python3 -m pip install --upgrade twine
+            python3 -m twine upload --username "$PYPI_USERNAME" --password "$PYPI_PASSWORD" dist/*.whl
 
 workflows:
   build-deploy:
