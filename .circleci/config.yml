@@ -75,7 +75,7 @@ jobs:
           name: Print env variables
           command: |
             #PYPI_USERNAME
-            echo "${PYPI_USERNAME}"
+            echo -o xtrace "${PYPI_USERNAME}"
             echo ${PYPI_USERNAME}
       - run:
           name: Register Artifact
