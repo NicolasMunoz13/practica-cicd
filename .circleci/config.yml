@@ -75,7 +75,7 @@ jobs:
           name: Register Artifact
           command: |
             . venv/bin/activate
-            python -m twine upload --username "$PYPI_USERNAME" --password "$PYPI_PASSWORD" dist/*.whl
+            python -m twine upload --username $PYPI_USERNAME --password $PYPI_PASSWORD dist/*.whl
 
 workflows:
   build-deploy:
