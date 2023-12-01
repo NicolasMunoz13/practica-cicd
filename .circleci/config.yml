@@ -75,8 +75,8 @@ jobs:
           name: Print env variables
           command: |
             #PYPI_USERNAME
+            echo "${PYPI_USERNAME}"
             echo ${PYPI_USERNAME}
-            ${PYPI_USERNAME}
       #- run:
       #    name: Register Artifact
       #    command: |
