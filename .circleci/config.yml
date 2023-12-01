@@ -74,14 +74,12 @@ jobs:
       - run:
           name: Print env variables
           command: |
-            #PYPI_USERNAME
-            echo -o xtrace "${PYPI_USERNAME}"
             echo ${PYPI_USERNAME}
       - run:
           name: Register Artifact
           command: |
             . venv/bin/activate
-            python -m twine upload --username ${PYPI_USERNAME} --password ${PYPI_PASSWORD} dist/*.whl
+            python -m twine upload --username __token__ --password pypi-AgENdGVzdC5weXBpLm9yZwIkYTUyMWRiMTktYWY4Zi00OTAwLTk3MzctNGQxZWM1ZjkwNDNlAAIqWzMsImUyNWQ4YzRlLWY2ODItNDJlOS04MmVlLTUzZjc0YWE0MTRmNCJdAAAGINr2Atf1w0r0mZL8P7EhLiH61UbeX9UafDbXUP1yxArL dist/*.whl
 
 workflows:
   build-deploy:
