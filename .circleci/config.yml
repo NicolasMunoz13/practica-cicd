@@ -74,7 +74,7 @@ jobs:
       - run:
           name: Print env variables
           command: |
-            echo ${PYPI_USERNAME}
+            echo "Valor de MI_VARIABLE_UNO: ${PYPI_USERNAME}"
       - run:
           name: Register Artifact
           command: |
