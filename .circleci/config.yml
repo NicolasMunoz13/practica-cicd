@@ -14,12 +14,6 @@ jobs:
       - restore_cache:
           keys:
           - deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
-      - run: 
-          name: Print working directory
-          command: pwd
-      - run:
-          name: list file
-          command: ls
       - run:
           name: Install dependencies
           command: |
@@ -31,6 +25,10 @@ jobs:
             pip3 install pylint
             pip3 install build
             pip3 install --upgrade twine
+      - save_cache:
+          paths:
+            - __pycache__
+          key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
       - run:
           name: Run tests
           command: |
@@ -59,11 +57,6 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
-          name: Verify file
-          command: |
-            ls
-            pwd
-      - run:
           name: Generate Artifact
           command: |
             . venv/bin/activate
@@ -71,10 +64,6 @@ jobs:
       - store_artifacts:
           path: ~/repo/dist
           destination: dist
-      - run:
-          name: Print env variables
-          command: |
-            echo "Valor de MI_VARIABLE_UNO: ${PYPI_USERNAME}"
       - run:
           name: Register Artifact
           command: |
